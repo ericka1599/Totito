@@ -1,8 +1,9 @@
-tab1 = [A, B, C]
-tab2 = [D, E, F]
-tab3 = [G, H, I]
+tab = [[A, B, C]
+[D, E, F]
+[G, H, I]]
 
 cont = 0
+turn = 1
 
 jug1 = input("Ingresa el nombre del jugador 1: ")
 jug2 = input("Ingresa el nombre del jugador 2: ")
@@ -22,26 +23,40 @@ while gan == False:
 		mar = "O"
 		cont = cont - 1
 
-	print (tab1 + \n + tab2 + \n + tab3 )
+	print (tab)
 	mov = input(jug + "Donde deseas marcar? ")
 	if mov == A:
-		tab1[0] = mar
+		tab[0,0] = mar
 	elif mov == B:
-		tab1[1] = mar
+		tab[0,1] = mar
 	elif mov == C:
-		tab1[2] == mar
+		tab[0,2] == mar
 	if mov == D:
-		tab2[0] = mar
+		tab[1,0] = mar
 	elif mov == E:
-		tab2[1] = mar
+		tab[1,1] = mar
 	elif mov == F:
-		tab2[2] == mar
+		tab[1,2] == mar
 	if mov == G:
-		tab3[0] = mar
+		tab[2,0] = mar
 	elif mov == H:
-		tab3[1] = mar
+		tab[2,1] = mar
 	elif mov == I:
-		tab3[2] == mar
+		tab[2,2] == mar
+	turn = turn + 1
 	 
 
-	if tab1[0] and tab1[1] and tab1[2]
+	if tab[0,0] and tab[0,1] and tab[0,2] == "X" or tab[1,0] and tab[1,1] and tab[1,2] == "X" or tab[2,0] and tab[2,1] and tab[2,2] == "X" or tab[0,0] and tab[1,0] and tab[2,0] == "X" or tab[0,1] and tab[1,1] and tab[2,1] == "X" or tab[0,2] and tab[1,2] and tab[2,2] == "X" or tab[0,0] and tab[1,1] and tab[2,2] == "X" or tab[0,2] and tab[1,1] and tab[2,0] == "X" :
+		gan = True
+		print ("Ganador: " + jug1 )
+	elif tab[0,0] and tab[0,1] and tab[0,2] == "O" or tab[1,0] and tab[1,1] and tab[1,2] == "O" or tab[2,0] and tab[2,1] and tab[2,2] == "O" or tab[0,0] and tab[1,0] and tab[2,0] == "O" or tab[0,1] and tab[1,1] and tab[2,1] == "O" or tab[0,2] and tab[1,2] and tab[2,2] == "O" or tab[0,0] and tab[1,1] and tab[2,2] == "O" or tab[0,2] and tab[1,1] and tab[2,0] == "O" :
+		gan = True
+		print ("Ganador: " + jug2 )
+
+	else :
+
+		print ("Turno #" + turn )
+
+	if turn == 9:
+		gan = True
+		print ("Nadie gana")
