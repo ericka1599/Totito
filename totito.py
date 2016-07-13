@@ -1,9 +1,10 @@
-tab = [["A" , "B" , "C"]
-["D" , "E" , "F"]
-["G" , "H" , "I"]]
+tab = [["A"  "B"  "C"],
+["D"  "E"  "F"],
+["G"  "H"  "I"]]
 
 cont = 0
 turn = 1
+turns = str(turn)
 
 jug1 = input("Ingresa el nombre del jugador 1: ")
 jug2 = input("Ingresa el nombre del jugador 2: ")
@@ -23,7 +24,7 @@ while gan == False:
 		mar = "O"
 		cont = cont - 1
 
-	print ("Turno #" + turn)
+	print ("Turno #" + turns)
 	turn = turn + 1
 
 	print (tab[0])
@@ -33,18 +34,19 @@ while gan == False:
 	mov = input(jug + " donde deseas marcar? ")
 
 	mov_valor = ord(mov) - 65
-	tiro_fila = tiro_valor % 3
-	tiro_columna = tiro_valor // 3
+	mov_fila = mov_valor % 3
+	mov_columna = mov_valor // 3
 
-	tab [tiro_fila] [tiro_columna] = mar
+	tab [mov_fila] [mov_columna] = mar
 
-	if tab [0] == 3
-		gan = True
-		print ("Ganador: " + jug1 )
+	if mar == "X" :
+		tir = -1
+	elif mar == "O":
+		tir = 1
+
+	lista2 = []
+
 	
-		gan = True
-		print ("Ganador: " + jug2 )
-
 
 	if turn == 10:
 		gan = True
