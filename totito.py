@@ -1,6 +1,6 @@
-tab = [["A "  "B "  "C"],
-["D "  "E "  "F"],
-["G "  "H "  "I"]]
+tab = [["A " , "B " , "C"],
+["D " , "E " , "F"],
+["G " , "H " , "I"]]
 
 cont = 0
 turn = 1
@@ -39,15 +39,13 @@ while gan == False:
 	mov_fila = mov_valor % 3
 	mov_columna = mov_valor // 3
 
-	tabs = tab [mov_fila] [mov_columna]
+	tabs = tab [ mov_fila ] [ mov_columna ]
 
 	tabs = resultado
+	celda = tabs
 
-	for i in range (0, 2, 1):
-		for j in range(0, 2, 1):
-			print (i)
-			print (j)
-			celda = tabs
+	for i in range (3):
+		for j in range(3):
 			if celda == 1:
 				resultado += "X"
 			elif celda == -1:
@@ -57,10 +55,10 @@ while gan == False:
 
 
 	sumas = []
-	for i in range(2):
+	for i in range(3):
 		sumas.append (tab[i][0] + tab[i][1] + tab[i][2])
 
-	for i in range(2):
+	for i in range(3):
 		sumas.append (tab[0][i] + tab[1][i] + tab[2][i])
 
 	sumd1 = 0
