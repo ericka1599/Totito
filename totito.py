@@ -17,9 +17,11 @@ while gan == False:
 
 	if cont == 0:
 		jug = jug1
+		resultado = 1
 		cont = cont + 1
 	else :
 		jug = jug2
+		resultado = -1
 		cont = cont - 1
 
 	print ("Turno #" + turns)
@@ -30,8 +32,6 @@ while gan == False:
 	print (tab[2])
 
 
-	resultado = " "
-
 	mov = input(jug + " donde deseas marcar? ")
 	movi = ord(mov)
 
@@ -40,18 +40,25 @@ while gan == False:
 	mov_columna = mov_valor // 3
 
 	tabs = tab [ mov_fila ] [ mov_columna ]
+	print (tabs)
 
-	tabs = resultado
 	celda = tabs
 
 	for i in range (3):
 		for j in range(3):
 			if celda == 1:
-				resultado += "X"
+				resultado = "X"
 			elif celda == -1:
-				resultado += "O"
+				resultado = "O"
 			else:
 				resultado = chr(3*i + j + 65)
+
+
+	tabs = resultado
+
+	print (tab[0])
+	print (tab[1])
+	print (tab[2])
 
 
 	sumas = []
@@ -64,8 +71,8 @@ while gan == False:
 	sumd1 = 0
 	sumd2 = 0
 	for i in range (3):
-		sumd1 += tab[i][i]
-		sumd2 += tab[i][2-i]
+		sumd1 += tabs[i][i]
+		sumd2 += tabs[i][2-i]
 		sumas.append (sumd1)
 		sumas.append (sumd2)
 
