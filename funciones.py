@@ -1,30 +1,22 @@
-def tablero (tab):
-	resultado = " "
+def tablero(tab):
+	resultado = ""
 	for i in tab:
 		for j in i:
 			resultado += j + " "
-		resultado += " "
-	return resultado
+		resultado += '\n'
+	return resultado 
 
-def jugador (jug1, jug2):
-	jug = ""
-	cont = 0
-	if cont == 0:
-		jug = jug1
-		cont = cont + 1
-	else :
-		jug = jug2
-		cont = cont - 1
+def jug1(mov,tab):
+		mov_val = ord(mov) - 65
+		tab[mov_val // 3][mov_val % 3] = "X"
+		return tablero(tab)
 
-def jug1 (mov, tab):
-	mov_valor = ord(mov) - 65
-	tab [mov_val // 3][mov_val % 3] = "X"
+def jug2(mov,tab):
+		mov_val = ord(mov) - 65
+		tab[mov_val // 3][mov_val % 3] = "O"
+		return tablero(tab)
 
-def jug2 (mov, tab):
-		mov_valor = ord(mov) - 65
-		tab [mov_val // 3][mov_val % 3] = "O"
-
-def ganador (tab):
+def ganador(tab):
 	lista2= []
 	suma= []
 	for i in tab:
@@ -52,8 +44,8 @@ def ganador (tab):
 		lista2.append(suma_d2)
 
 	if 3 in lista2:
-		print (jug1 + " ganaste!")
+		print ("Ganaste!")
 	elif -3 in lista2:
-		print (jug2 + " ganaste!")
+		print ("Ganaste!")
 	else:
-		print ("Nadie gana")	
+		return " "	

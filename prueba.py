@@ -1,43 +1,47 @@
 import funciones
 des = 1
-while des == 1:
+jugador1 = input("Ingresa el  nombre del jugador 1: ")
+jugador2 = input("Ingresa el nombre del jugador 2: ")
+while des != 2:
 
-	tab = [["A " , "B " , "C"], 
-	["D " , "E " , "F"], 
-	["G " , "H " , "I"]]
-
-	jug1 = input("Ingrese el nombre del primer jugador: ")
-	jug2 = input("Ingrese el nombre del segundo jugador: ")
-
-	print (funciones.tablero(tab))
-	
-	print (jug1)
-
-	mov = input("Donde deseas marcar? ")
-	print(funciones.jug1(tab))
-	print(funciones.ganador(tab))
-
-	cont = 4
-	while cont > 0:
-
-
-		if funciones.ganador(tab) != jug2 :
-						print(jug1)
-						mov = input("Donde vas a marcar? ")
-						print(funciones.jug1(tab))
-						print(funciones.ganador(tab))
-					
-		cont = cont - 1 		
+	if des == 1:
 		
-			print("Si desea jugar de nuevo presione 1.")
-			print("Si desea salir presione 2.")
-			des = int(input("Presiona: "))		
+		tab= [["A","B","C"],
+			["D","E","F"],
+			["G","H","I"]]
+		print(funciones.tablero(tab))
+		
+		print(jugador1)
+		mov = input("Donde marcaras? ")
+		print(funciones.jug1(mov.upper(),tab))
+		print(funciones.ganador(tab))
 
-		elif des == 2:
-			print("Gracias por jugar!")		
+		cont = 4
+		while cont > 0:
 
-		else:
-			print("No se vale.")
-			print("Si desea jugar de nuevo presione 1.")
-			print("Si desea salir presione 2.")
-			des = int(input("Presiona: "))
+			if funciones.ganador(tab) != jugador1 and funciones.ganador(tab) != jugador2 :
+				print("Jugador " + jugador2)
+				mov = input("Donde marcaras? ")
+				print(funciones.jug2(mov.upper(),tab))
+				print(funciones.ganador(tab))
+			
+				if funciones.ganador(tab) != jugador2 :
+					print("Jugador " + jugador1)
+					mov = input("Donde marcaras? ")
+					print(funciones.jug1(mov.upper(),tab))
+					print(funciones.ganador(tab))
+				
+			cont = cont - 1 		
+	
+		print("Jugar de nuevo presione 1.")
+		print("Salir presione 2.")
+		des = int(input("Presiona: "))		
+
+	elif des == 2:
+		print("Gracias por jugar!")		
+
+	else:
+		print("Opcion invalida.")
+		print("Jugar de nuevo presione 1.")
+		print("Salir presione 2.")
+		des = int(input("Presiona: "))	
